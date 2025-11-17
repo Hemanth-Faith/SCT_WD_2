@@ -1,0 +1,105 @@
+:root{
+    --bg:#0f1724;
+    --card:#0b1220;
+    --accent:#7c3aed;
+    --accent-2:#06b6d4;
+    --muted:#94a3b8;
+    --glass: rgba(255,255,255,0.03);
+}
+
+*{box-sizing:border-box}
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    margin:0;
+    background: linear-gradient(180deg,#061221 0%, #09202a 100%);
+    font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    color:#e6eef6;
+}
+
+.stopwatch-container{
+    width:100vw;
+    height:100vh;
+    max-width:none;
+    background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+    border-radius:0;
+    padding:2rem;
+    box-shadow: 0 10px 40px rgba(2,6,23,0.75), inset 0 1px 0 rgba(255,255,255,0.02);
+    display:flex;
+    gap:1.25rem;
+    align-items:stretch;
+    overflow:hidden;
+}
+
+.stopwatch-container{display:flex;gap:1rem;align-items:stretch}
+.panel-left{flex:1;overflow:auto;padding-right:0.5rem}
+.panel-right{width:360px;display:flex;justify-content:center;align-items:flex-start}
+.clock-card{width:100%;display:flex;flex-direction:column;align-items:center;gap:0.6rem;padding:0.75rem;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01))}
+.clock-label{color:var(--muted);font-size:0.85rem}
+.clock-card canvas{border-radius:50%;background:transparent;display:block}
+
+.tz-select{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted);padding:0.45rem 0.6rem;border-radius:8px;font-size:0.9rem}
+.clock-actions{width:100%;display:flex;justify-content:center}
+.tz-digital{margin-top:0.4rem;color:#cbd5e1;font-weight:600;font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', monospace}
+
+.stopwatch-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:1rem;
+    margin-bottom:0.5rem;
+}
+.stopwatch-header h1{margin:0;font-size:1.1rem;letter-spacing:0.6px}
+.hint{margin:0;color:var(--muted);font-size:0.82rem}
+
+.timer-display{
+    font-weight:700;
+    font-size:3rem;
+    text-align:center;
+    padding:0.6rem 0.5rem;
+    border-radius:8px;
+    margin:0.5rem 0 0.9rem 0;
+    background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    letter-spacing:1px;
+}
+
+.controls{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:0.5rem}
+.buttons{display:flex;gap:0.5rem;align-items:center}
+.btn{padding:0.5rem 0.9rem;border-radius:8px;border:0;font-weight:600;cursor:pointer;background:var(--glass);color:var(--muted)}
+.btn.primary{background:linear-gradient(90deg,var(--accent),#5b21b6);color:white;box-shadow:0 6px 18px rgba(124,58,237,0.12)}
+.btn.danger{background:linear-gradient(90deg,#ef4444,#dc2626);color:white}
+.btn.muted{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted)}
+.btn:active{transform:translateY(1px)}
+
+.laps-section{margin-top:1rem}
+.laps-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem}
+.laps-header h2{margin:0;font-size:0.95rem}
+.lap-stats{display:flex;gap:0.6rem}
+.stat{font-size:0.82rem;color:var(--muted)}
+
+.laps-container{list-style:none;margin:0;padding:0;max-height:260px;overflow:auto;border-radius:8px}
+.laps-container li{display:flex;justify-content:space-between;align-items:center;padding:0.55rem 0.75rem;margin-bottom:0.4rem;background:rgba(255,255,255,0.02);border-radius:6px;font-size:0.92rem}
+.lap-left{display:flex;gap:0.75rem;align-items:center}
+.lap-number{font-weight:700;color:#cbd5e1}
+.lap-time{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', monospace; color:#e6eef6}
+.lap-delta{color:var(--muted);font-size:0.86rem}
+.best{outline:2px solid rgba(6,182,212,0.08)}
+.worst{outline:2px solid rgba(124,58,237,0.06)}
+
+.copy-btn{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted);padding:0.25rem 0.45rem;border-radius:6px;font-size:0.8rem;cursor:pointer}
+.lap-item-actions{display:flex;align-items:center;gap:0.5rem}
+
+@media (max-width:520px){
+    .timer-display{font-size:2.3rem}
+    .buttons{flex-wrap:wrap}
+}
+
+@media (max-width:880px){
+    .stopwatch-container{flex-direction:column;align-items:stretch}
+    .panel-right{width:100%;order:2}
+}
+
+/* ensure content inside full screen has comfortable max width */
+.panel-left .timer-display{max-width:100%;}

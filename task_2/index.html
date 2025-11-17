@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="stopwatch-container">
+        <div class="panel-left">
+            <header class="stopwatch-header">
+                <h1>Stopwatch</h1>
+                <p class="hint">Space: Start/Pause • L: Lap • R: Reset • C: Clear Laps • E: Export</p>
+            </header>
+
+            <div class="timer-display" role="timer" aria-live="polite">00:00:00.000</div>
+
+            <div class="controls">
+                <div class="buttons">
+                    <button id="start-pause-btn" class="btn primary">Start</button>
+                    <button id="lap-btn" class="btn">Lap</button>
+                    <button id="reset-btn" class="btn danger">Reset</button>
+                </div>
+                <div class="secondary-actions">
+                    <button id="clear-laps-btn" class="btn muted">Clear Laps</button>
+                    <button id="export-laps-btn" class="btn muted">Export CSV</button>
+                    <button id="export-json-btn" class="btn muted">Export JSON</button>
+                </div>
+            </div>
+
+            <section class="laps-section">
+                <div class="laps-header">
+                    <h2>Laps</h2>
+                    <div class="lap-stats">
+                        <span id="best-lap" class="stat">Best: —</span>
+                        <span id="worst-lap" class="stat">Worst: —</span>
+                    </div>
+                </div>
+                <ul class="laps-container" id="laps"></ul>
+            </section>
+        </div>
+
+        <aside class="panel-right">
+            <div class="clock-card">
+                <canvas id="analog-clock" width="260" height="260" aria-label="Analog clock"></canvas>
+                   <div class="clock-actions">
+                       <select id="timezone-select" class="tz-select" aria-label="Select timezone">
+                           <option value="system">System (Local)</option>
+                           <option value="UTC">UTC</option>
+                           <option value="America/New_York">America/New_York</option>
+                           <option value="America/Chicago">America/Chicago</option>
+                           <option value="America/Los_Angeles">America/Los_Angeles</option>
+                           <option value="Europe/London">Europe/London</option>
+                           <option value="Europe/Berlin">Europe/Berlin</option>
+                           <option value="Asia/Kolkata">Asia/Kolkata</option>
+                           <option value="Asia/Tokyo">Asia/Tokyo</option>
+                           <option value="Australia/Sydney">Australia/Sydney</option>
+                       </select>
+                       <div id="tz-digital" class="tz-digital" aria-live="polite"></div>
+                   </div>
+            </div>
+        </aside>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
