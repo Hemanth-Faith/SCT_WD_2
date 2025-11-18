@@ -15,16 +15,6 @@ Files
 - `style.css` — visual styling and responsive layout
 - `script.js` — stopwatch logic, lap management, analog clock, timezone support
 
-Run locally
-1. Open PowerShell in the project folder (where `index.html` lives).
-2. Start a simple static server (Python must be installed):
-
-```powershell
-python -m http.server 8000
-```
-
-3. Open a browser and visit `http://localhost:8000/`.
-
 Usage
 - Click `Start` (or press Space) to begin timing. Click `Lap` (or press `L`) to record a lap.
 - `Reset` clears the stopwatch. `Clear Laps` removes recorded laps but preserves the stopwatch.
